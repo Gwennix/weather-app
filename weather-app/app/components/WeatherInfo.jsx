@@ -1,20 +1,18 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 const WeatherInfo = ({ weather }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.city}>City: {weather.name}</Text>
+      <Text style={styles.city}>{weather.name}</Text>
       
       <View style={styles.infoBox}>
-        <Text style={styles.infoText}>Temperature: {weather.main.temp} °C</Text>
-      </View>
-
-      <View style={styles.infoBox}>
-        <Text style={styles.infoText}>Humidity: {weather.main.humidity} %</Text>
-      </View>
-
-      <View style={styles.infoBox}>
-        <Text style={styles.infoText}>Wind: {weather.wind.speed} m/s</Text>
+        <Image
+          style={styles.logo}
+          source={require('../../assets/images/sun.png')} 
+        />
+        <Text style={styles.infoText}>
+          {weather.main.temp}°C / {weather.main.humidity}% / {weather.wind.speed}m/s
+        </Text>
       </View>
     </View>
   );
@@ -35,11 +33,17 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 12,
     marginVertical: 6,
-    width: 180,
+    width: 280,
+    flex: 1,
+    flexDirection: 'row',
   },
   infoText: {
     color: 'black',
     fontSize: 16,
+  },
+  logo: {
+    width: 60,
+    height: 60,
   },
 });
 
