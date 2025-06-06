@@ -11,7 +11,7 @@ const WeatherInfo = ({ weather }) => {
           source={require('../../assets/images/sun.png')} 
         />
         <Text style={styles.infoText}>
-          {weather.main.temp}°C / {weather.main.humidity}% / {weather.wind.speed}m/s
+          {Math.floor(weather.main.temp)}°C / {weather.main.humidity}% / {weather.wind.speed}m/s
         </Text>
       </View>
     </View>
